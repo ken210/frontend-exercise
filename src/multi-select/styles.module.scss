@@ -1,0 +1,124 @@
+$border-grey: #c3c2c0;
+$background: #f8f8f8;
+$blue: #3063d0;
+$input-padding: 1em;
+
+.container {
+  border: 1px solid $border-grey;
+  border-radius: 0.2em;
+  padding: 2em;
+  background: $background;
+
+  /* Desktop */
+  @media screen and (min-device-width: 901px) {
+    font-size: 16px;
+    width: 400px;
+  }
+
+  /* Mobile */
+  @media screen and (max-device-width: 900px) {
+    font-size: 13px;
+    width: 100%;
+  }
+
+  ul {
+    list-style: none;
+  }
+}
+.search {
+  position: relative;
+  margin-top: 1.5em;
+
+  input {
+    font-size: 1em;
+    padding: $input-padding / 2 $input-padding;
+    border: $border-grey solid 1px;
+    border-radius: 0.2em;
+    margin: 0;
+    width: 100%;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  width: 1em;
+  margin-top: -$input-padding / 2;
+  top: 50%;
+  right: $input-padding / 2;
+  opacity: 0.7;
+}
+
+.scroll {
+  /* Desktop */
+  @media screen and (min-device-height: 500px) {
+    height: 350px;
+  }
+
+  /* Mobile */
+  @media screen and (max-device-height: 480px) {
+    height: 250px;
+  }
+
+  overflow: auto;
+  margin-top: 1.5em;
+}
+
+.item {
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  padding: 0.8em;
+  padding-left: 1.5em;
+  display: block;
+
+  input {
+    display: none;
+
+    & + span {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 1em;
+      height: 1em;
+      border: 1px solid $border-grey;
+      background: white;
+      margin-top: -0.5em;
+    }
+
+    &:checked + span:after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      bottom: 2px;
+      right: 2px;
+      background: $blue;
+    }
+
+    &:checked + span + span {
+      color: $blue;
+    }
+  }
+
+  em {
+    font-style: inherit;
+    font-weight: 700;
+  }
+}
+
+.submit {
+  background: $blue;
+  color: white;
+  border: none;
+  border-radius: 0.2em;
+  box-shadow: black 1px 1px 1px;
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1.4em;
+  margin-top: 1em;
+
+  &:disabled {
+    background: desaturate($color: $blue, $amount: 100);
+  }
+}
